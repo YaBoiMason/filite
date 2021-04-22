@@ -1,6 +1,6 @@
 # filite
 
-> The `master` branch isn't actively maintained anymore, and the current development branch, `next`, will be merged into it in the near future.
+I found this project and it seemed to be dead, with no commits in months and I really needed to bind to a specific address so I added it.
 
 A simple, light and standalone pastebin, URL shortener and file-sharing service that hosts **fi**les, redirects **li**nks and stores **te**xts.
 
