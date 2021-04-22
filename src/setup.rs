@@ -83,6 +83,8 @@ pub struct Config {
     pub files_dir: PathBuf,
     /// Highlight.js configuration
     pub highlight: HighlightConfig,
+    // Address to bind to
+    pub bind: String,
 }
 
 #[derive(Serialize, Deserialize, Clone)]
@@ -106,14 +108,15 @@ impl Default for Config {
         };
         let pool_size = std::cmp::max(1, num_cpus::get() as u32 / 2);
         let files_dir = get_data_dir().join("files");
-
+	let bind = "127.0.0.1".to_string();
         Self {
             port,
             database_url,
             pool_size,
             files_dir,
             highlight: HighlightConfig::default(),
-        }
+            bind,
+	}
     }
 }
 
@@ -202,14 +205,15 @@ impl Config {
                     .expect("Invalid FILES_DIR")
             }
         };
-
+	let bind = parse_env!("BIND");
         Self {
             port,
             database_url,
             pool_size,
             files_dir,
             highlight: HighlightConfig::default(),
-        }
+       	    bind,
+	 }
     }
 }
 

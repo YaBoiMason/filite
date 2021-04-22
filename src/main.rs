@@ -44,6 +44,9 @@ async fn main() {
     }
 
     let port = CONFIG.port;
+    let bind = &CONFIG.bind;
+
+    println!("Bound to {}", bind);
     println!("Listening on port {}", port);
 
     HttpServer::new(move || {
@@ -92,7 +95,7 @@ async fn main() {
                     .route(web::delete().to(routes::texts::delete)),
             )
     })
-    .bind(&format!("localhost:{}", port))
+    .bind(&format!("{}:{}",bind, port))
     .unwrap_or_else(|e| {
         eprintln!("Can't bind webserver to specified port: {}", e);
         process::exit(1);
