@@ -84,6 +84,8 @@ database_url = "database.db"
 pool_size = 4
 # Directory where to store static files
 files_dir = "files"
+# Address to bind to
+bind = "127.0.0.1"
 
 # Highlight.js configuration
 [highlight]
